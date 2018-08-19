@@ -5,6 +5,8 @@ import java.security.MessageDigest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.codec.binary.Hex;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.converter.json.MappingJacksonValue;
 import org.springframework.stereotype.Controller;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.zlj.common.utils.RequestUtils;
 import com.zlj.core.bean.user.Buyer;
+import com.zlj.core.service.user.BuyerService;
 import com.zlj.core.service.user.SessionProvider;
 
 /**
@@ -26,9 +29,9 @@ import com.zlj.core.service.user.SessionProvider;
 @Controller
 public class LoginController {
 
-	// @Autowired
-	// private BuyerService buyerService;
-	//
+	@Autowired
+	private BuyerService buyerService;
+
 	@Autowired
 	private SessionProvider sessionProvider;
 
